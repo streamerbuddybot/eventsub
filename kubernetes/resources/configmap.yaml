@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grpc-dns
+data:
+  config.json: |
+    {
+      "grpcServer": {
+        "port": 9090,
+        "host": "0.0.0.0"
+      },
+      "grpcClients": {
+        "endpoint": {
+          "host": "streamwizard-backend-endpoint-service",
+          "port": 9090
+        },
+        "commands": {
+          "host": "streamwizard-backend-command-service",
+          "port": 9090
+        },
+        "irc": {
+          "host": "streamwizard-backend-irc-service",
+          "port": 9090
+        }
+      }
+    }
