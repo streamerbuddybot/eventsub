@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: streamwizard-backend-eventsub
-          image: ghcr.io/streamerbuddybot/eventsub:efdef0cd737f1654070cf0b936d1cfa3280386e2
+          image: ghcr.io/streamerbuddybot/eventsub:2db42fd78cc9d92aaff69d517e8aed9e2bf10d66
           ports:
             - containerPort: 80
           envFrom:
