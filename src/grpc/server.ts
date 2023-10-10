@@ -4,8 +4,8 @@ import * as config from "../config.json";
 import { eventsub } from "../functions/handleEventsub";
 
 const server = new grpc.Server();
-const port = config.grpcServer.port;
-const host = config.grpcServer.host;
+const port = config.eventsub.port;
+const host = config.eventsub.host;
 
 async function grpcServer() {
   const serviceImpl = {

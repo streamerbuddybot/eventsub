@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: streamwizard-backend-irc-service
+  name: streamwizard-backend-eventsub-service
 spec:
   ports:
   - port: 80
     targetPort: 80
   selector:
-    app: streamwizard-backend-irc
+    app: streamwizard-backend-eventsub
 
 

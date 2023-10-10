@@ -1,12 +1,11 @@
 resources:
 - deployment.yaml
 - service.yaml
-- configmap.yaml
 # - ingress.yaml
 
 commonLabels:
-  app: streamwizard-backend-irc
+  app: streamwizard-backend-eventsub
 
 commonAnnotations:
-  app: streamwizard-backend-irc-annontations
+  app: streamwizard-backend-eventsub-annontations
 

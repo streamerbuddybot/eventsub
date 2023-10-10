@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: streamwizard-backend-irc
+  name: streamwizard-backend-eventsub
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
-      app: streamwizard-backend-irc
+      app: streamwizard-backend-eventsub
   template:
     metadata:
       annotations:
         linkerd.io/inject: enabled  # This annotation enables automatic injection
       labels:
-        app: streamwizard-backend-irc
+        app: streamwizard-backend-eventsub
     spec:
       containers:
-        - name: streamwizard-backend-irc
+        - name: streamwizard-backend-eventsub
           image: ghcr.io/streamerbuddybot/twitch_irc:efdef0cd737f1654070cf0b936d1cfa3280386e2
           ports:
             - containerPort: 80

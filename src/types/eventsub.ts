@@ -391,7 +391,7 @@ export interface ChannelPointsCustomRewardRedemptionEvent {
     id: string;
     title: string;
     cost: number;
-    prompt: string;
+    prompt?: string;
   };
   redeemed_at: string;
 }
