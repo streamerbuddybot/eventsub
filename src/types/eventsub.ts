@@ -52,7 +52,6 @@ export enum TwitchEventSubTypes {
   Unknown = "unknown", // For unknown actions
 }
 
-
 export interface ChannelUpdateEventData {
   broadcaster_user_id: string;
   broadcaster_user_login: string;
@@ -297,6 +296,46 @@ export interface ChannelPointsCustomRewardAddEvent {
   };
 }
 
+export interface ChannelPointsCustomRewardRemoveEvent {
+  id: string;
+  broadcaster_user_id: string;
+  broadcaster_user_login: string;
+  broadcaster_user_name: string;
+  is_enabled: boolean;
+  is_paused: boolean;
+  is_in_stock: boolean;
+  title: string;
+  cost: number;
+  prompt: string;
+  is_user_input_required: boolean;
+  should_redemptions_skip_request_queue: boolean;
+  cooldown_expires_at: string;
+  redemptions_redeemed_current_stream: number;
+  max_per_stream: {
+    is_enabled: boolean;
+    value: number;
+  };
+  max_per_user_per_stream: {
+    is_enabled: boolean;
+    value: number;
+  };
+  global_cooldown: {
+    is_enabled: boolean;
+    seconds: number;
+  };
+  background_color: string;
+  image: {
+    url_1x: string;
+    url_2x: string;
+    url_4x: string;
+  };
+  default_image: {
+    url_1x: string;
+    url_2x: string;
+    url_4x: string;
+  };
+}
+
 export interface ChannelPointsCustomRewardUpdateEvent {
   id: string;
   broadcaster_user_id: string;
@@ -502,8 +541,6 @@ export interface ChannelPredictionBeginEvent {
   started_at: string; // You can use Date type if you parse the string to a Date object
   locks_at: string; // You can use Date type if you parse the string to a Date object
 }
-
-
 
 export interface ChannelPredictionPredictionEvent {
   id: string;
@@ -898,7 +935,6 @@ export interface UserUpdateEvent {
   email_verified: boolean;
   description: string;
 }
-
 
 export interface TwitchEventState {
   channelUpdateData: ChannelUpdateEventData | undefined;

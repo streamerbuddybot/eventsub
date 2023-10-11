@@ -10,6 +10,7 @@ class channelPointDB {
 
   //search for a channel point by id and channel id
   async searchChannelPointByID(id: string, channelID: string) {
+    console.log(id, channelID);
     try {
       let search = await database.listDocuments<ChannnelPointsStorage>(this.database, channelID.toString(), [
         Query.equal("channelpointID", id),
@@ -17,6 +18,22 @@ class channelPointDB {
         Query.limit(1),
       ]);
       return search;
+    } catch (error) {
+      throw new Error("Error getting data from database");
+    }
+  }
+
+  //remove a channel point by id and channel id
+  async removeChannelPoint(id: string, channelID: string) {
+    const search = await this.searchChannelPointByID(id, channelID);
+    console.log(search)
+    if (search?.total === 0) return;
+
+    const documentID = search.documents[0].$id;
+
+
+    try {
+      await database.deleteDocument(this.database, channelID, documentID);
     } catch (error) {
       console.log(error);
     }

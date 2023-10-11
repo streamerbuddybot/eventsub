@@ -82,7 +82,8 @@ export async function eventsub(type: string, data: any) {
       break;
 
     case "channel.channel_points_custom_reward.remove":
-      // Handle channel points custom reward remove subscription
+      EventSubHandler.handleChannelPointsCustomRewardRemove(type, data);
+
       break;
 
     case "channel.channel_points_custom_reward_redemption.add":

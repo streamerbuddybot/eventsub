@@ -40,6 +40,14 @@ class eventSubHandler {
 
     sendChatMessage(MessagePayload);
   }
+
+  //handle channel point removed
+  async handleChannelPointsCustomRewardRemove(type: string, event: EventSubTypes.ChannelPointsCustomRewardRemoveEvent) {
+    const res = await ChannelPointDB.removeChannelPoint(event.id, event.broadcaster_user_id);
+
+    console.log(event);
+
+  }
 }
 
 export const EventSubHandler = new eventSubHandler();
