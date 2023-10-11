@@ -190,11 +190,11 @@ export async function eventsub(type: string, data: any) {
       break;
 
     case "stream.online":
-      // Handle stream online subscription
+      EventSubHandler.handleChannelOnline(data);
       break;
 
     case "stream.offline":
-      // Handle stream offline subscription
+      EventSubHandler.handleChannelOffline(data);
       break;
 
     case "user.authorization.grant":
