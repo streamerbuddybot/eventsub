@@ -50,6 +50,12 @@ class eventSubHandler {
   //handle channel online
   async handleChannelOnline(event: EventSubTypes.StreamOnlineEvent) {
     await TwitchDBHandler.setStreamerOnline(event.broadcaster_user_id);
+    const MessagePayload = new SendMessageRequest({
+      channel: `${event.broadcaster_user_login}`,
+      message: `${event.broadcaster_user_login} is now live`,
+    });
+
+    sendChatMessage(MessagePayload);
   }
 
 
